@@ -415,8 +415,6 @@
 		D0ECCB8D1FE9CE3F00609802 /* SnapshotChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ECCB8C1FE9CE3F00609802 /* SnapshotChatList.swift */; };
 		D0F575132083B96B00F1C1E1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F575122083B96B00F1C1E1 /* CloudKit.framework */; };
 		D0FC1948201D2DA800FEDBB2 /* SFCompactRounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0FC1947201D2DA700FEDBB2 /* SFCompactRounded-Semibold.otf */; };
-		F7F28FC921CCCDB3008DC5A4 /* Strutext.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F28FC821CCCDB2008DC5A4 /* Strutext.framework */; };
-		F7F28FCA21CCCDB3008DC5A4 /* Strutext.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F7F28FC821CCCDB2008DC5A4 /* Strutext.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -509,7 +507,6 @@
 			files = (
 				D08611B21F5711080047111E /* HockeySDK.framework in Embed Frameworks */,
 				D06706611D51185400DED3E3 /* TelegramCore.framework in Embed Frameworks */,
-				F7F28FCA21CCCDB3008DC5A4 /* Strutext.framework in Embed Frameworks */,
 				D0CD17B61CC3AE14007C5650 /* AsyncDisplayKit.framework in Embed Frameworks */,
 				D096C2BF1CC3C021006D814E /* Display.framework in Embed Frameworks */,
 				D0B4AF901EC122A700D51FF6 /* TelegramUI.framework in Embed Frameworks */,
@@ -1146,7 +1143,6 @@
 		D0ECCB8C1FE9CE3F00609802 /* SnapshotChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotChatList.swift; sourceTree = "<group>"; };
 		D0F575122083B96B00F1C1E1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D0FC1947201D2DA700FEDBB2 /* SFCompactRounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFCompactRounded-Semibold.otf"; path = "Telegram-iOS/Resources/SFCompactRounded-Semibold.otf"; sourceTree = "<group>"; };
-		F7F28FC821CCCDB2008DC5A4 /* Strutext.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Strutext.framework; path = "submodules/TelegramUI/third-party/Strutext.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1166,7 +1162,6 @@
 			files = (
 				09C50E88217385CF009E676F /* WatchConnectivity.framework in Frameworks */,
 				09FDAEE62140477F00BF856F /* MtProtoKitDynamic.framework in Frameworks */,
-				F7F28FC921CCCDB3008DC5A4 /* Strutext.framework in Frameworks */,
 				D01A47551F4DBED700383CC1 /* HockeySDK.framework in Frameworks */,
 				D0A18D631E149043004C6734 /* PushKit.framework in Frameworks */,
 				D0B844601DACF561005F29E1 /* libc++.tbd in Frameworks */,
@@ -1873,7 +1868,6 @@
 		D00859931B28189D00EAF753 = {
 			isa = PBXGroup;
 			children = (
-				F7F28FC821CCCDB2008DC5A4 /* Strutext.framework */,
 				D023EBB31DDB2F0E00BD496D /* Resources */,
 				D03B0E791D63484500955575 /* Share */,
 				D0D268771D79A70A00C422DA /* SiriIntents */,
