@@ -4704,7 +4704,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Watch/Bridge";
 				INFOPLIST_FILE = "Telegram-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4746,7 +4746,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Watch/Bridge";
 				INFOPLIST_FILE = "Telegram-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4883,7 +4883,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Watch/Bridge";
 				INFOPLIST_FILE = "Telegram-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4943,7 +4943,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = X834Q8SBVP;
 				INFOPLIST_FILE = Share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5862,7 +5862,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = X834Q8SBVP;
 				INFOPLIST_FILE = Share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5893,7 +5893,7 @@
 				CURRENT_PROJECT_VERSION = 624;
 				DEVELOPMENT_TEAM = 6N38VWS5BX;
 				INFOPLIST_FILE = Share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5923,7 +5923,7 @@
 				CURRENT_PROJECT_VERSION = 624;
 				DEVELOPMENT_TEAM = X834Q8SBVP;
 				INFOPLIST_FILE = Share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6009,7 +6009,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Watch/Bridge";
 				INFOPLIST_FILE = "Telegram-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6070,7 +6070,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 6N38VWS5BX;
 				INFOPLIST_FILE = Share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6177,7 +6177,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Watch/Bridge";
 				INFOPLIST_FILE = "Telegram-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6234,7 +6234,7 @@
 				CURRENT_PROJECT_VERSION = 624;
 				DEVELOPMENT_TEAM = X834Q8SBVP;
 				INFOPLIST_FILE = Share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6348,7 +6348,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Watch/Bridge";
 				INFOPLIST_FILE = "Telegram-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6409,7 +6409,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = C67CF9S4VU;
 				INFOPLIST_FILE = Share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6993,7 +6993,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Watch/Bridge";
 				INFOPLIST_FILE = "Telegram-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7052,7 +7052,7 @@
 				DEVELOPMENT_TEAM = C67CF9S4VU;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = Share/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -7367,7 +7367,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Watch/Bridge";
 				INFOPLIST_FILE = "Telegram-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

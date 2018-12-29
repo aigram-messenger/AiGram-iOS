@@ -2,6 +2,10 @@
 
 int main(int argc, char *argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, @"Application", @"AppDelegate");
+        @try {
+            return UIApplicationMain(argc, argv, @"Application", @"AppDelegate");
+        } @catch (NSException *ex) {
+            NSLog(@"%@", ex);
+        }
     }
 }
