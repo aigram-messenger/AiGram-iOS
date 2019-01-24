@@ -13,7 +13,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.org.telegram.TelegramHD</string>
+		<string>group.com.olcorporation.olai</string>
 	</array>
 </dict>
 </plist>

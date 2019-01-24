@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.fork.telegram.Telegram-iOS</string>
+		<string>group.com.olcorporation.olai</string>
 	</array>
 </dict>
 </plist>
