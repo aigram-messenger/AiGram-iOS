@@ -1,0 +1,436 @@
+fastlane_version "2.58.0"
+
+fastlane_require 'wannabe_bool'
+fastlane_require 'git'
+
+default_platform :ios
+
+platform :ios do
+  ci_build = is_ci
+
+# ██████╗ ███████╗██████╗ ███████╗
+# ██╔══██╗██╔════╝██╔══██╗██╔════╝
+# ██║  ██║█████╗  ██████╔╝███████╗
+# ██║  ██║██╔══╝  ██╔═══╝ ╚════██║
+# ██████╔╝███████╗██║     ███████║
+# ╚═════╝ ╚══════╝╚═╝     ╚══════╝
+
+  before_all do
+    load_product_info()
+    setup_jenkins(force: true)
+    xcversion(version: "~> 10.0")
+  end
+
+  desc "Installs all dependencies. Mostly used for gracefull cacheing."
+  lane :install_deps do |options|
+    #begin
+    #  cocoapods(verbose: $product[:verbose])
+    #rescue => ex
+    #  cocoapods(repo_update: true, verbose: $product[:verbose])
+    #end
+
+    carthage_required = load_optional_option(options, :carthage_required, true)
+
+    carthage(cache_builds: true, platform: "ios", verbose: $product[:verbose]) if File.file?("../Cartfile") && carthage_required
+  end
+
+# ████████╗███████╗███████╗████████╗██╗███╗   ██╗ ██████╗
+# ╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██║████╗  ██║██╔════╝
+#    ██║   █████╗  ███████╗   ██║   ██║██╔██╗ ██║██║  ███╗
+#    ██║   ██╔══╝  ╚════██║   ██║   ██║██║╚██╗██║██║   ██║
+#    ██║   ███████╗███████║   ██║   ██║██║ ╚████║╚██████╔╝
+#    ╚═╝   ╚══════╝╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝
+
+  desc "Autocorrects code and ensures that no corrections made"
+  desc "After that performs actual linting"
+  lane :lint do
+    install_deps(carthage_required: false) if ci_build
+    swiftlint(executable: "Pods/SwiftLint/swiftlint", mode: :autocorrect)
+    ensure_git_status_clean if ci_build
+    swiftlint(executable: "Pods/SwiftLint/swiftlint", mode: :lint, reporter: "emoji", strict: true)
+  end
+
+  desc "Checks if section related to version exists in changelog"
+  lane :log_check do
+    version = get_version_info()
+    changelog = get_changelog_for_version()
+    UI.user_error!("Please, provide changelog for version #{version[:version]}") if changelog.to_s.empty?
+  end
+
+  lane :log_stamp do
+    version = get_version_info()
+    stamp_changelog(section_identifier: version[:version])
+  end
+
+  desc "Performs tests of app and gathers code coverage stats"
+  lane :test do
+    install_deps(carthage_required: false)
+
+    sh("rm -rf ../output")
+
+    match_specific(
+      types: ["development"]
+    )
+
+    scan(
+      scheme: $product[:scheme],
+      code_coverage: true,
+    )
+
+    xcov(
+      scheme: $product[:scheme],
+      only_project_targets: true,
+      output_directory: "xcov_output",
+      derived_data_path: "derivedData",
+    )
+  end
+
+  lane :validate_ci do
+    begin
+      temporary_dir = get_random_directory_name
+      auth_string = $product[:ci_job_token] != nil ? "gitlab-ci-token:#{$product[:ci_job_token]}@" : ""
+      Git.clone("https://#{auth_string}gitlab.smedialink.com/iOS/ci-scripts.git", temporary_dir)
+
+      compare_files_hashes("../fastlane/Fastfile", temporary_dir + "/fastlane/Fastfile")
+      compare_files_hashes("../.gitlab-ci.yml", temporary_dir + "/.gitlab-ci.yml")
+    ensure
+      FileUtils.rm_rf(temporary_dir)
+    end
+  end
+
+  lane :fetch_ci_scripts do
+    temporary_dir = get_random_directory_name
+    Git.clone("https://gitlab.smedialink.com/iOS/ci-scripts.git", temporary_dir)
+
+    replace_file("../.gitlab-ci.yml", "#{temporary_dir}/.gitlab-ci.yml")
+    FileUtils.cp_r("#{temporary_dir}/fastlane", "../")
+    FileUtils.rm_rf(temporary_dir)
+  end
+
+# ██████╗ ██╗   ██╗██╗██╗     ██████╗ ██╗███╗   ██╗ ██████╗
+# ██╔══██╗██║   ██║██║██║     ██╔══██╗██║████╗  ██║██╔════╝
+# ██████╔╝██║   ██║██║██║     ██║  ██║██║██╔██╗ ██║██║  ███╗
+# ██╔══██╗██║   ██║██║██║     ██║  ██║██║██║╚██╗██║██║   ██║
+# ██████╔╝╚██████╔╝██║███████╗██████╔╝██║██║ ╚████║╚██████╔╝
+# ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝
+
+  desc "Builds project. Requires `:export` method, one of:"
+  desc "(ad-hoc, app-store, package, enterprise, development, developer-id)"
+  lane :build do |options|
+    export_method = load_required_option(options, :export)
+
+    #install_deps(carthage_required: false)
+
+    #set_version
+
+    profile_type = export_method == 'ad-hoc' ? 'adhoc' : 'appstore'
+
+    #update_all_signing_params(
+    #  profile_type: profile_type,
+    #  configuration: $product[:configuration],
+    #)
+
+    sh("rm -rf ../output")
+
+    gym(
+      scheme: $product[:scheme],
+      output_name: $product[:scheme],
+      configuration: $product[:configuration],
+      export_method: export_method,
+      export_options: { compileBitcode: true },
+      #skip_build_archive: true,
+      #archive_path: "/Volumes/Other/Telegram-iOS AppStore 2019-02-11 17.34.24.xcarchive",
+    )
+  end
+
+  desc "Export archive to ipa."
+  desc "Requires `:archive :output` options set."
+  lane :export_archive do |options|
+    archive = load_required_option(options, :archive).to_b
+    output = load_required_option(options, :output).to_b
+
+    gym(
+      scheme: $product[:scheme],
+      output_name: $product[:scheme],
+      configuration: $product[:configuration],
+      skip_build_archive: true,
+      archive_path: $archive,
+    )
+  end
+
+# ██████╗ ███████╗██████╗ ██╗      ██████╗ ██╗   ██╗███╗   ███╗███████╗███╗   ██╗████████╗
+# ██╔══██╗██╔════╝██╔══██╗██║     ██╔═══██╗╚██╗ ██╔╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝
+# ██║  ██║█████╗  ██████╔╝██║     ██║   ██║ ╚████╔╝ ██╔████╔██║█████╗  ██╔██╗ ██║   ██║
+# ██║  ██║██╔══╝  ██╔═══╝ ██║     ██║   ██║  ╚██╔╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║
+# ██████╔╝███████╗██║     ███████╗╚██████╔╝   ██║   ██║ ╚═╝ ██║███████╗██║ ╚████║   ██║
+# ╚═════╝ ╚══════╝╚═╝     ╚══════╝ ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+
+  desc "Uploads build to Fabric Beta."
+  desc "Requires `CRASHLYTICS_API_TOKEN` & `CRASHLYTICS_BUILD_SECRET` env variables set."
+  desc "Requires `CRASHLYTICS_GROUP` or `:group` option set."
+  lane :deploy_fabric do |options|
+    crashlytics_testers_group = load_required_var_or_option("CRASHLYTICS_GROUP", options, :group)
+    crashlytics_token = load_required_var("CRASHLYTICS_API_TOKEN")
+    crashlytics_secret = load_required_var("CRASHLYTICS_BUILD_SECRET")
+
+    install_deps(carthage_required: false)
+    log_check unless ci_build
+
+    build(export: 'ad-hoc') unless ci_build
+
+    crashlytics(
+      ipa_path: "output/#{$product[:scheme]}.ipa",
+      api_token: crashlytics_token,
+      build_secret: crashlytics_secret,
+      groups: crashlytics_testers_group,
+      notes: get_changelog_for_version()
+    )
+  end
+
+  desc "Uploads build to Testflight Beta Testing."
+  desc "Requires `:external` option set."
+  lane :deploy_testflight do |options|
+    version = get_version_info()
+    UI.user_error!("You are not on production/beta/alpha track. Pleasae, build on release tag.") unless version[:track]
+
+    external = load_required_option(options, :external).to_b
+    log_check unless ci_build
+
+    build(export: 'app-store') unless ci_build
+
+    pilot(
+      app_identifier: $product[:bundle_id],
+      changelog: get_changelog_for_version(),
+      ipa: "output/#{$product[:scheme]}.ipa",
+      team_id: $product[:itc_team_id],
+      dev_portal_team_id: $product[:dev_team_id],
+      distribute_external: external,
+      skip_waiting_for_build_processing: true,
+    )
+  end
+
+  desc "Submits app to Appstore directly."
+  lane :deploy_appstore do
+    UI.important("WARNING: this step is not implemented, for now it works the same as normal testflight")
+    deploy_testflight(external: false)
+  end
+
+# ██╗   ██╗███████╗██████╗ ███████╗██╗ ██████╗ ███╗   ██╗██╗███╗   ██╗ ██████╗
+# ██║   ██║██╔════╝██╔══██╗██╔════╝██║██╔═══██╗████╗  ██║██║████╗  ██║██╔════╝
+# ██║   ██║█████╗  ██████╔╝███████╗██║██║   ██║██╔██╗ ██║██║██╔██╗ ██║██║  ███╗
+# ╚██╗ ██╔╝██╔══╝  ██╔══██╗╚════██║██║██║   ██║██║╚██╗██║██║██║╚██╗██║██║   ██║
+#  ╚████╔╝ ███████╗██║  ██║███████║██║╚██████╔╝██║ ╚████║██║██║ ╚████║╚██████╔╝
+#   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝
+
+  desc "Captures version from git tag and sets version and build number in project."
+  desc "Requires tag to be in format `<major>.<minor>.<patch>-<build>`. For example: `0.1.4-15`."
+  private_lane :set_version do
+    version = get_version_info()
+
+    increment_version_number(version_number: version[:version])
+    increment_build_number(build_number: version[:build])
+  end
+
+# ███████╗██╗ ██████╗ ███╗   ██╗██╗███╗   ██╗ ██████╗
+# ██╔════╝██║██╔════╝ ████╗  ██║██║████╗  ██║██╔════╝
+# ███████╗██║██║  ███╗██╔██╗ ██║██║██╔██╗ ██║██║  ███╗
+# ╚════██║██║██║   ██║██║╚██╗██║██║██║╚██╗██║██║   ██║
+# ███████║██║╚██████╔╝██║ ╚████║██║██║ ╚████║╚██████╔╝
+# ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝
+
+  desc "Updates all signing properties in `.xcodeproj`, requires `:profile_type` option."
+  lane :update_all_signing_params do |options|
+    profile_type = load_required_option(options, :profile_type)
+
+    match_specific(
+      types: [profile_type]
+    )
+
+    profile_path = load_required_var("sigh_#{$product[:bundle_id]}_#{profile_type}_profile-path")
+
+    update_project_provisioning(
+      xcodeproj: $product[:project_path],
+      profile: profile_path,
+      target_filter: $product[:scheme],
+      build_configuration: $product[:configuration],
+    )
+
+    update_project_team(
+      path: $product[:project_path],
+      teamid: $product[:dev_team_id]
+    )
+
+    update_app_identifier(
+      plist_path: $product[:plist_path],
+      app_identifier: $product[:bundle_id]
+    )
+  end
+
+  desc "Ensures that gitlab is in known_hosts"
+  private_lane :add_gitlab_keys do
+    sh "ssh-keygen -R '[gitlab.smedialink.com]:2222'"
+    sh "ssh-keyscan -p 2222 gitlab.smedialink.com >> ~/.ssh/known_hosts"
+  end
+
+  desc "Fetches all certificates and provisionong profiles related to project."
+  lane :match_all do
+    match_specific(types: ["development", "adhoc", "appstore"])
+  end
+
+  desc "Fetches specific certificates and provisionong profiles related to project"
+  private_lane :match_specific do |options|
+    UI.user_error!("Please, provide `:types` option (development | adhoc | appstore)") unless options[:types]
+
+    add_gitlab_keys
+
+    options[:types].each do |type|
+      match(
+        type: type,
+        app_identifier: $product[:bundle_id],
+        git_branch: $product[:match_branch],
+        readonly: true,
+        clone_branch_directly: true,
+        shallow_clone: true
+      )
+    end
+  end
+end
+
+# ██╗  ██╗███████╗██╗     ██████╗ ███████╗██████╗ ███████╗
+# ██║  ██║██╔════╝██║     ██╔══██╗██╔════╝██╔══██╗██╔════╝
+# ███████║█████╗  ██║     ██████╔╝█████╗  ██████╔╝███████╗
+# ██╔══██║██╔══╝  ██║     ██╔═══╝ ██╔══╝  ██╔══██╗╚════██║
+# ██║  ██║███████╗███████╗██║     ███████╗██║  ██║███████║
+# ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝╚══════╝
+
+def get_changelog_for_version
+  version = get_version_info()
+  return read_changelog(section_identifier: "[#{version[:version]}]")
+end
+
+def get_version_info
+  return $product[:version] if $product[:version]
+
+  ci_build = $product[:ci]
+
+  tag = ci_build ? ENV["CI_COMMIT_TAG"] : sh("git tag -l --points-at HEAD", log: false)
+  branch = ci_build ? ENV["CI_COMMIT_REF_NAME"] : git_branch
+
+  if match = /^v?(\d+\.\d+\.\d+)(?:-(\w+)\.(\d+)){0,1}(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?$/.match(tag)
+    UI.message "Using tag \"#{tag.strip}\" as version source"
+
+    track_build_multiplier = { alpha: 1, beta: 100, production: 10000 }
+
+    version = match[1]
+    track = (match[2] || "production").to_sym
+    multiplier = track_build_multiplier[track]
+    build = ((match[3] || 1).to_i * multiplier).to_s
+  elsif match = /release\/(\d+\.\d+\.\d+)/.match(branch)
+    UI.message "Using \"#{match[0]}\" branch as version source"
+    version = match[1]
+    build = sh("git rev-list HEAD --count").to_i.to_s
+  else
+    UI.user_error!("Could not extract version from git. Either use `release/*` branch or set tag.")
+  end
+
+  $product[:version] = { version: version, build: build, track: track }
+
+  return $product[:version]
+end
+
+def load_product_info
+  $product = Hash.new
+
+  $product[:ci] = is_ci
+
+  if $product[:ci]
+    $product[:ci_job_token] = load_required_var("CI_JOB_TOKEN")
+    $product[:env] = load_required_var("ENV")
+  else
+    $product[:env] = UI.select("Select environment", get_available_envs())
+  end
+
+  $product[:verbose] = load_optional_var("VERBOSE_OUTPUT", false)
+  $product[:scheme] = load_required_var("PRODUCT_SCHEME")
+  $product[:plist_path] = load_required_var("PRODUCT_PLIST_PATH")
+  $product[:project_path] = load_required_var("PRODUCT_PROJECT_PATH")
+  $product[:configuration] = load_required_var("PRODUCT_CONFIGURATION")
+
+  env = $product[:env].upcase
+
+  $product[:scheme] = load_optional_var("#{env}_PRODUCT_SCHEME", $product[:scheme])
+  $product[:configuration] = load_optional_var("#{env}_PRODUCT_CONFIGURATION", $product[:configuration])
+  $product[:plist_path] = load_optional_var("#{env}_PRODUCT_PLIST_PATH", $product[:plist_path])
+
+  $product[:dev_team_id] = load_required_var("#{env}_DEV_TEAM_ID")
+  $product[:itc_team_id] = load_required_var("#{env}_ITC_TEAM_ID")
+  $product[:bundle_id] = load_required_var("#{env}_BUNDLE_ID")
+
+  $product[:match_branch] = ($product[:dev_team_id] == "YRL9Q8Z5Z4") ? "master" : $product[:dev_team_id]
+
+  FastlaneCore::PrintTable.print_values(config: $product, title: "Product Info")
+end
+
+def load_required_var(name)
+  return ENV[name] || UI.user_error!("Please provide `#{name}` environment variable.")
+end
+
+def load_optional_var(name, default)
+  return ENV[name] || default
+end
+
+def load_required_option(options, name)
+  option = options[name]
+  return option != nil ? option : UI.user_error!("Please provide `#{name}` option.")
+end
+
+def load_optional_option(options, name, default)
+  option = options[name]
+  return option != nil ? option : default
+end
+
+def load_required_var_or_option(var_name, options, option_name)
+  result = ENV[var_name] || options[option_name]
+  return result != nil ? result : UI.user_error!("Please provide either `#{var_name}` environment variable or `#{option_name}` option.")
+end
+
+def get_available_envs
+  return ENV.to_h.keys.map { |key|
+    match = key.to_s.match(/^(.*)_BUNDLE_ID/)
+    match[1] if match
+  }.compact
+end
+
+def get_random_directory_name
+  o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
+  string = (0...50).map { o[rand(o.length)] }.join
+  return string
+end
+
+def md5_checksum(file)
+  file = File.open(file, 'rb')
+  md5 = Digest::MD5.new
+  until file.eof?
+    md5.update(file.read(4096))
+  end
+  return md5
+end
+
+def compare_files_hashes(first_file, second_file)
+  our_hash = md5_checksum(first_file)
+  standard_hash = md5_checksum(second_file)
+  if our_hash != standard_hash
+    raise "#{first_file} do not match the one from Ci-Scripts repository! Use `fastlane fetch_ci_scripts` to update it."
+  end
+end
+
+def replace_file(file, replacement_file)
+
+  full_path_to_read = File.expand_path(replacement_file)
+  full_path_to_write = File.expand_path(file)
+
+  File.open(full_path_to_read) do |source_file|
+    contents = source_file.read
+    File.open(full_path_to_write, "w+") { |f| f.write(contents) }
+  end
+end
