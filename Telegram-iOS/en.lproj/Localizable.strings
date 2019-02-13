@@ -1976,8 +1976,7 @@
 "Conversation.BotInteractiveUrlAlert" = "Allow %@ to pass your Telegram name and id (not your phone number) to pages you open with this bot?";
 "StickerPacksSettings.ArchivedMasks" = "Archived Masks";
 "StickerSettings.MaskContextInfo" = "If you archive a set of masks, you can quickly restore it later from the Archived Masks section.";
-"StickerPacksSettings.ArchivedMasks.Info" = "You can have up to 200 sets of masks.
-Unused sets are archived when you add more.";
+"StickerPacksSettings.ArchivedMasks.Info" = "You can have up to 200 sets of masks. Unused sets are archived when you add more.";
 
 "CloudStorage.Title" = "Cloud Storage";
 

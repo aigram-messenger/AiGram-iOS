@@ -1,0 +1,20 @@
+// Tour
+"Tour.Title1" = "AiGram";
+"Tour.Text1" = "The **smartest** and **safest**\nывафвфывфывф in the world.";
+
+"Tour.Title2" = "FAST";
+"Tour.Text2" = "Message delivery is quicker than in\nany other app.";
+
+"Tour.Title6" = "SMART";
+"Tour.Text6" = "Artificial Intelligence will help\nwith communication and\nmake it brighter.";
+
+"Tour.Title4" = "SECURE";
+"Tour.Text4" = "Your messages are safe from\ncyberattacks.";
+
+"Tour.Title5" = "CLOUD-BASED";
+"Tour.Text5" = "Message access from multiple devices";
+
+"Tour.Title3" = "POWERFUL";
+"Tour.Text3" = "There are no size limits to\nyour files and chats.";
+
+"Tour.StartButton" = "Start Messaging";
