@@ -137,9 +137,7 @@ platform :ios do
       output_name: $product[:scheme],
       configuration: $product[:configuration],
       export_method: export_method,
-      export_options: { compileBitcode: true },
-      #skip_build_archive: true,
-      #archive_path: "/Volumes/Other/Telegram-iOS AppStore 2019-02-11 17.34.24.xcarchive",
+      export_options: { compileBitcode: true }
     )
   end
 
@@ -188,23 +186,22 @@ platform :ios do
   end
 
   desc "Uploads build to Testflight Beta Testing."
-  desc "Requires `:external` option set."
   lane :deploy_testflight do |options|
-    version = get_version_info()
-    UI.user_error!("You are not on production/beta/alpha track. Pleasae, build on release tag.") unless version[:track]
+    #version = get_version_info()
+    #UI.user_error!("You are not on production/beta/alpha track. Pleasae, build on release tag.") unless version[:track]
 
-    external = load_required_option(options, :external).to_b
-    log_check unless ci_build
+    #external = load_required_option(options, :external).to_b
+    #log_check unless ci_build
 
-    build(export: 'app-store') unless ci_build
+    #build(export: 'app-store') unless ci_build
 
     pilot(
       app_identifier: $product[:bundle_id],
-      changelog: get_changelog_for_version(),
+      changelog: "-",
       ipa: "output/#{$product[:scheme]}.ipa",
       team_id: $product[:itc_team_id],
       dev_portal_team_id: $product[:dev_team_id],
-      distribute_external: external,
+      distribute_external: true,
       skip_waiting_for_build_processing: true,
     )
   end
