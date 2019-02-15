@@ -415,6 +415,7 @@
 		D0ECCB8D1FE9CE3F00609802 /* SnapshotChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ECCB8C1FE9CE3F00609802 /* SnapshotChatList.swift */; };
 		D0F575132083B96B00F1C1E1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F575122083B96B00F1C1E1 /* CloudKit.framework */; };
 		D0FC1948201D2DA800FEDBB2 /* SFCompactRounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0FC1947201D2DA700FEDBB2 /* SFCompactRounded-Semibold.otf */; };
+		F7FF1F062216FBC6008BE8C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7FF1F052216FBC5008BE8C3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1143,6 +1144,7 @@
 		D0ECCB8C1FE9CE3F00609802 /* SnapshotChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotChatList.swift; sourceTree = "<group>"; };
 		D0F575122083B96B00F1C1E1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D0FC1947201D2DA700FEDBB2 /* SFCompactRounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFCompactRounded-Semibold.otf"; path = "Telegram-iOS/Resources/SFCompactRounded-Semibold.otf"; sourceTree = "<group>"; };
+		F7FF1F052216FBC5008BE8C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1903,6 +1905,7 @@
 		D008599E1B28189D00EAF753 /* Telegram-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F7FF1F052216FBC5008BE8C3 /* GoogleService-Info.plist */,
 				09C50E7821738150009E676F /* Watch */,
 				D0ADF914212B399A00310BBC /* Config-AppStoreLLC.xcconfig */,
 				D079FD021F06BBD60038FADE /* Config-AppStore.xcconfig */,
@@ -2827,6 +2830,7 @@
 				D0CE6F5E213EDA4400BCD44B /* Localizable.strings in Resources */,
 				D08DB0B7213F4D1D00F2ADBF /* powerful_infinity_white@2x.png in Resources */,
 				D00859A91B28189D00EAF753 /* Images.xcassets in Resources */,
+				F7FF1F062216FBC6008BE8C3 /* GoogleService-Info.plist in Resources */,
 				D001D5AA1F878DA300DF975A /* PhoneCountries.txt in Resources */,
 				D0CE6F56213EDA4400BCD44B /* InfoPlist.strings in Resources */,
 				D0CE6F65213EDA4400BCD44B /* InfoPlist.strings in Resources */,

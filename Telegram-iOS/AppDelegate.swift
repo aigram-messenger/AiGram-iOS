@@ -10,6 +10,7 @@ import Postbox
 import PushKit
 import AsyncDisplayKit
 import CloudKit
+import FirebaseCore
 
 private let handleVoipNotifications = false
 
@@ -215,6 +216,7 @@ private enum QueuedWakeup: Int32 {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+        FirebaseApp.configure()
         let statusBarHost = ApplicationStatusBarHost()
         let (window, hostView) = nativeWindowHostView()
         self.mainWindow = Window1(hostView: hostView, statusBarHost: statusBarHost)
