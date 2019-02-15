@@ -189,19 +189,19 @@
 "Tour.Title1" = "AiGram";
 "Tour.Text1" = "The **smartest** and **safest**\nmessenger in the world.";
 
-"Tour.Title2" = "FAST";
+"Tour.Title2" = "Fast";
 "Tour.Text2" = "Message delivery is quicker than in\nany other app.";
 
-"Tour.Title6" = "SMART";
+"Tour.Title6" = "Smart";
 "Tour.Text6" = "Artificial Intelligence will help\nwith communication and\nmake it brighter.";
 
-"Tour.Title4" = "SECURE";
+"Tour.Title4" = "Secure";
 "Tour.Text4" = "Your messages are safe from\ncyberattacks.";
 
-"Tour.Title5" = "CLOUD-BASED";
+"Tour.Title5" = "Cloud-based";
 "Tour.Text5" = "Message access from multiple devices";
 
-"Tour.Title3" = "POWERFUL";
+"Tour.Title3" = "Powerful";
 "Tour.Text3" = "There are no size limits to\nyour files and chats.";
 
 "Tour.StartButton" = "Start Messaging";
