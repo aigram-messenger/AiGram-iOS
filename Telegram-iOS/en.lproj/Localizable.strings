@@ -192,8 +192,8 @@
 "Tour.Title2" = "Fast";
 "Tour.Text2" = "Message delivery is quicker than in\nany other app.";
 
-"Tour.Title6" = "Smart";
-"Tour.Text6" = "Artificial Intelligence will help\nwith communication and\nmake it brighter.";
+"Tour.Title3" = "Smart";
+"Tour.Text3" = "Artificial Intelligence will help\nwith communication and\nmake it brighter.";
 
 "Tour.Title4" = "Secure";
 "Tour.Text4" = "Your messages are safe from\ncyberattacks.";
@@ -201,8 +201,8 @@
 "Tour.Title5" = "Cloud-based";
 "Tour.Text5" = "Message access from multiple devices";
 
-"Tour.Title3" = "Powerful";
-"Tour.Text3" = "There are no size limits to\nyour files and chats.";
+"Tour.Title6" = "Powerful";
+"Tour.Text6" = "There are no size limits to\nyour files and chats.";
 
 "Tour.StartButton" = "Start Messaging";
 
