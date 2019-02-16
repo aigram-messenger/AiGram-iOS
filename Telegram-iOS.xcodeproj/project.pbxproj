@@ -416,6 +416,8 @@
 		D0F575132083B96B00F1C1E1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F575122083B96B00F1C1E1 /* CloudKit.framework */; };
 		D0FC1948201D2DA800FEDBB2 /* SFCompactRounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0FC1947201D2DA700FEDBB2 /* SFCompactRounded-Semibold.otf */; };
 		F7FF1F062216FBC6008BE8C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7FF1F052216FBC5008BE8C3 /* GoogleService-Info.plist */; };
+		F7FF1F0E22184030008BE8C3 /* YandexMobileMetrica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7FF1F0D2218402F008BE8C3 /* YandexMobileMetrica.framework */; };
+		F7FF1F0F22184030008BE8C3 /* YandexMobileMetrica.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F7FF1F0D2218402F008BE8C3 /* YandexMobileMetrica.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -509,6 +511,7 @@
 				D08611B21F5711080047111E /* HockeySDK.framework in Embed Frameworks */,
 				D06706611D51185400DED3E3 /* TelegramCore.framework in Embed Frameworks */,
 				D0CD17B61CC3AE14007C5650 /* AsyncDisplayKit.framework in Embed Frameworks */,
+				F7FF1F0F22184030008BE8C3 /* YandexMobileMetrica.framework in Embed Frameworks */,
 				D096C2BF1CC3C021006D814E /* Display.framework in Embed Frameworks */,
 				D0B4AF901EC122A700D51FF6 /* TelegramUI.framework in Embed Frameworks */,
 				D096C2C21CC3C104006D814E /* Postbox.framework in Embed Frameworks */,
@@ -1145,6 +1148,7 @@
 		D0F575122083B96B00F1C1E1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D0FC1947201D2DA700FEDBB2 /* SFCompactRounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFCompactRounded-Semibold.otf"; path = "Telegram-iOS/Resources/SFCompactRounded-Semibold.otf"; sourceTree = "<group>"; };
 		F7FF1F052216FBC5008BE8C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F7FF1F0D2218402F008BE8C3 /* YandexMobileMetrica.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YandexMobileMetrica.framework; path = "submodules/TelegramUI/third-party/YandexMobileMetrica.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1162,6 +1166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7FF1F0E22184030008BE8C3 /* YandexMobileMetrica.framework in Frameworks */,
 				09C50E88217385CF009E676F /* WatchConnectivity.framework in Frameworks */,
 				09FDAEE62140477F00BF856F /* MtProtoKitDynamic.framework in Frameworks */,
 				D01A47551F4DBED700383CC1 /* HockeySDK.framework in Frameworks */,
@@ -1870,6 +1875,7 @@
 		D00859931B28189D00EAF753 = {
 			isa = PBXGroup;
 			children = (
+				F7FF1F0D2218402F008BE8C3 /* YandexMobileMetrica.framework */,
 				D023EBB31DDB2F0E00BD496D /* Resources */,
 				D03B0E791D63484500955575 /* Share */,
 				D0D268771D79A70A00C422DA /* SiriIntents */,
