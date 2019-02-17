@@ -145,7 +145,7 @@ platform :ios do
   desc "Requires `:archive :output` options set."
   lane :export_archive do |options|
     archive = load_required_option(options, :archive).to_b
-    output = load_required_option(options, :output).to_b
+    #output = load_required_option(options, :output).to_b
 
     gym(
       scheme: $product[:scheme],
