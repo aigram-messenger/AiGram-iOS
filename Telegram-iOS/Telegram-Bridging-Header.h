@@ -14,4 +14,6 @@
 #import "TGBridgeUser.h"
 #import "TGBridgeLocationVenue.h"
 
+#import "ObjC.h"
+
 #endif
