@@ -1,36 +1,36 @@
 [submodule "submodules/AsyncDisplayKit"]
 	path = submodules/AsyncDisplayKit
-url=git@github.com:cheisesu/AsyncDisplayKit.git
+	url=git@github.com:aigram-messenger/AsyncDisplayKit.git
 [submodule "submodules/Display"]
 	path = submodules/Display
-url=git@github.com:cheisesu/Display.git
+	url=git@github.com:aigram-messenger/Display.git
 [submodule "submodules/HockeySDK-iOS"]
 	path = submodules/HockeySDK-iOS
-url=git@github.com:cheisesu/HockeySDK-iOS.git
+	url=git@github.com:aigram-messenger/HockeySDK-iOS.git
 [submodule "submodules/LegacyComponents"]
 	path = submodules/LegacyComponents
-url=git@github.com:cheisesu/LegacyComponents.git
+	url=git@github.com:aigram-messenger/LegacyComponents.git
 [submodule "submodules/libtgvoip"]
 	path = submodules/libtgvoip
-url=git@github.com:cheisesu/libtgvoip.git
+	url=git@github.com:aigram-messenger/libtgvoip.git
 [submodule "submodules/lottie-ios"]
 	path = submodules/lottie-ios
-url=git@github.com:cheisesu/lottie-ios.git
+	url=git@github.com:aigram-messenger/lottie-ios.git
 [submodule "submodules/MtProtoKit"]
 	path = submodules/MtProtoKit
-url=git@github.com:cheisesu/MtProtoKit.git
+	url=git@github.com:aigram-messenger/MtProtoKit.git
 [submodule "submodules/Postbox"]
 	path = submodules/Postbox
-url=git@github.com:cheisesu/Postbox.git
+	url=git@github.com:aigram-messenger/Postbox.git
 [submodule "submodules/SSignalKit"]
 	path = submodules/SSignalKit
-url=git@github.com:cheisesu/Signals.git
+	url=git@github.com:aigram-messenger/Signals.git
 [submodule "submodules/TelegramCore"]
 	path = submodules/TelegramCore
-url=git@github.com:cheisesu/TelegramCore.git
+	url=git@github.com:aigram-messenger/TelegramCore.git
 [submodule "submodules/TelegramUI"]
 	path = submodules/TelegramUI
-url=git@github.com:cheisesu/TelegramUI.git
+	url=git@github.com:aigram-messenger/TelegramUI.git
 [submodule "submodules/AiGramLib"]
 	path = submodules/AiGramLib
 	url = git@github.com:aigram-messenger/AiGramLib-iOS.git
