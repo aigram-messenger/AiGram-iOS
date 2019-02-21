@@ -31,3 +31,6 @@ url=git@github.com:cheisesu/TelegramCore.git
 [submodule "submodules/TelegramUI"]
 	path = submodules/TelegramUI
 url=git@github.com:cheisesu/TelegramUI.git
+[submodule "submodules/AiGramLib"]
+	path = submodules/AiGramLib
+	url = git@github.com:aigram-messenger/AiGramLib-iOS.git
