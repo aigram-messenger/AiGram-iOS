@@ -195,14 +195,14 @@
 "Tour.Title3" = "Smart";
 "Tour.Text3" = "Artificial Intelligence will help\nwith communication and\nmake it brighter.";
 
-"Tour.Title4" = "Secure";
-"Tour.Text4" = "Your messages are safe from\ncyberattacks.";
+"Tour.Title4" = "Powerful";
+"Tour.Text4" = "There are no size limits to\nyour files and chats.";
 
-"Tour.Title5" = "Cloud-based";
-"Tour.Text5" = "Message access from multiple devices";
+"Tour.Title5" = "Secure";
+"Tour.Text5" = "Your messages are safe from\ncyberattacks.";
 
-"Tour.Title6" = "Powerful";
-"Tour.Text6" = "There are no size limits to\nyour files and chats.";
+"Tour.Title6" = "Cloud-based";
+"Tour.Text6" = "Message access from multiple devices";
 
 "Tour.StartButton" = "Start Messaging";
 
