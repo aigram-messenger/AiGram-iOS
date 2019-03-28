@@ -144,15 +144,25 @@ platform :ios do
   desc "Export archive to ipa."
   desc "Requires `:archive :output` options set."
   lane :export_archive do |options|
-    archive = load_required_option(options, :archive).to_b
-    #output = load_required_option(options, :output).to_b
+    # archive = load_required_option(options, :archive)
+    # export_method = load_required_option(options, :export)
 
+    archive_path = options[:archive]
+    export_method = options[:export]
+
+    puts "Archive path: " + archive_path
+    puts "Export method: " + export_method
+
+    # profile_type = export_method == 'ad-hoc' ? 'adhoc' : 'appstore'
+    
     gym(
       scheme: $product[:scheme],
       output_name: $product[:scheme],
       configuration: $product[:configuration],
       skip_build_archive: true,
-      archive_path: $archive,
+      export_method: export_method,
+      export_options: { compileBitcode: true },
+      archive_path: archive_path,
     )
   end
 
