@@ -10,7 +10,6 @@ import Postbox
 import PushKit
 import AsyncDisplayKit
 import CloudKit
-import YandexMobileMetrica
 
 private let handleVoipNotifications = false
 
@@ -216,10 +215,6 @@ private enum QueuedWakeup: Int32 {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
-        if let configuration = YMMYandexMetricaConfiguration(apiKey: "9e6bd2dc-d9ff-48a9-a9da-b5d6e15d841c") {
-            YMMYandexMetrica.activate(with: configuration)
-        }
-        
         let statusBarHost = ApplicationStatusBarHost()
         let (window, hostView) = nativeWindowHostView()
         self.mainWindow = Window1(hostView: hostView, statusBarHost: statusBarHost)

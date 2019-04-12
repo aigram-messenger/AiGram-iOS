@@ -255,7 +255,6 @@
 		F7173C27221D8B960029D97C /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C1D221D8B950029D97C /* GoogleUtilities.framework */; };
 		F7173C28221D8B960029D97C /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C1E221D8B960029D97C /* FirebaseInstanceID.framework */; };
 		F7173C29221D8B960029D97C /* tensorflow_lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C1F221D8B960029D97C /* tensorflow_lite.framework */; };
-		F7B9CF7522187EE8003A2A71 /* YandexMobileMetrica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9CF6E221877B7003A2A71 /* YandexMobileMetrica.framework */; };
 		F7B9CF7722188096003A2A71 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9CF7622188096003A2A71 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F7B9CF79221880A2003A2A71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9CF78221880A2003A2A71 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F7B9CF7B221880AB003A2A71 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9CF7A221880AB003A2A71 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -978,9 +977,6 @@
 		F7173C1D221D8B950029D97C /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "submodules/AiGramLib/third-party/GoogleUtilities.framework"; sourceTree = "<group>"; };
 		F7173C1E221D8B960029D97C /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = "submodules/AiGramLib/third-party/FirebaseInstanceID.framework"; sourceTree = "<group>"; };
 		F7173C1F221D8B960029D97C /* tensorflow_lite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = tensorflow_lite.framework; path = "submodules/AiGramLib/third-party/tensorflow_lite.framework"; sourceTree = "<group>"; };
-		F7B9CF6A22187495003A2A71 /* YandexMobileMetrica.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YandexMobileMetrica.framework; path = "../../../../Users/dmitryshelonin/Downloads/YandexMobileMetrica-3.5.0-ios-a29e7edc-5396-454c-ac51-32593097e680/static/YandexMobileMetrica.framework"; sourceTree = "<group>"; };
-		F7B9CF6C2218751F003A2A71 /* YandexMobileMetrica.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YandexMobileMetrica.framework; path = "submodules/TelegramUI/third-party/YandexMobileMetrica.framework"; sourceTree = "<group>"; };
-		F7B9CF6E221877B7003A2A71 /* YandexMobileMetrica.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YandexMobileMetrica.framework; path = "third-party/YandexMobileMetrica.framework"; sourceTree = "<group>"; };
 		F7B9CF7622188096003A2A71 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F7B9CF78221880A2003A2A71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F7B9CF7A221880AB003A2A71 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -1004,7 +1000,6 @@
 				F7B9CF7722188096003A2A71 /* CoreTelephony.framework in Frameworks */,
 				F7173BF5221D87A80029D97C /* AiGramLib.framework in Frameworks */,
 				D09A59601B5858DB00FC3724 /* SystemConfiguration.framework in Frameworks */,
-				F7B9CF7522187EE8003A2A71 /* YandexMobileMetrica.framework in Frameworks */,
 				09C50E88217385CF009E676F /* WatchConnectivity.framework in Frameworks */,
 				09FDAEE62140477F00BF856F /* MtProtoKitDynamic.framework in Frameworks */,
 				D01A47551F4DBED700383CC1 /* HockeySDK.framework in Frameworks */,
@@ -1847,9 +1842,6 @@
 				F7B9CF7A221880AB003A2A71 /* AdSupport.framework */,
 				F7B9CF78221880A2003A2A71 /* CoreLocation.framework */,
 				F7B9CF7622188096003A2A71 /* CoreTelephony.framework */,
-				F7B9CF6A22187495003A2A71 /* YandexMobileMetrica.framework */,
-				F7B9CF6C2218751F003A2A71 /* YandexMobileMetrica.framework */,
-				F7B9CF6E221877B7003A2A71 /* YandexMobileMetrica.framework */,
 				0972C6DF21791D950069E98A /* UserNotifications.framework */,
 				09C50E87217385CF009E676F /* WatchConnectivity.framework */,
 				09C50E852173854D009E676F /* WatchKit.framework */,
