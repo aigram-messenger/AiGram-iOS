@@ -249,7 +249,6 @@
 		F7173C21221D8B960029D97C /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C17221D8B940029D97C /* FirebaseMLCommon.framework */; };
 		F7173C22221D8B960029D97C /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C18221D8B940029D97C /* FirebaseAuth.framework */; };
 		F7173C23221D8B960029D97C /* FirebaseMLModelInterpreter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C19221D8B940029D97C /* FirebaseMLModelInterpreter.framework */; };
-		F7173C24221D8B960029D97C /* FirebaseFunctions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C1A221D8B950029D97C /* FirebaseFunctions.framework */; };
 		F7173C25221D8B960029D97C /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C1B221D8B950029D97C /* nanopb.framework */; };
 		F7173C26221D8B960029D97C /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C1C221D8B950029D97C /* GTMSessionFetcher.framework */; };
 		F7173C27221D8B960029D97C /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7173C1D221D8B950029D97C /* GoogleUtilities.framework */; };
@@ -1014,7 +1013,6 @@
 				F7173C21221D8B960029D97C /* FirebaseMLCommon.framework in Frameworks */,
 				F7173C22221D8B960029D97C /* FirebaseAuth.framework in Frameworks */,
 				F7173C23221D8B960029D97C /* FirebaseMLModelInterpreter.framework in Frameworks */,
-				F7173C24221D8B960029D97C /* FirebaseFunctions.framework in Frameworks */,
 				F7173C25221D8B960029D97C /* nanopb.framework in Frameworks */,
 				F7173C26221D8B960029D97C /* GTMSessionFetcher.framework in Frameworks */,
 				F7173C27221D8B960029D97C /* GoogleUtilities.framework in Frameworks */,
